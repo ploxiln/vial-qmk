@@ -4,6 +4,7 @@ from array import array
 from math import ceil
 from pathlib import Path
 import os
+from functools import lru_cache
 from glob import glob
 
 import qmk.path
@@ -98,6 +99,7 @@ def keyboard_completer(prefix, action, parser, parsed_args):
     return list_keyboards()
 
 
+@lru_cache(maxsize=None)
 def list_keyboards():
     """Returns a list of all keyboards.
     """
@@ -105,8 +107,10 @@ def list_keyboards():
     kb_wildcard = os.path.join(base_path, "**", "rules.mk")
     paths = [path for path in glob(kb_wildcard, recursive=True) if 'keymaps' not in path]
 
-    return sorted(set(map(resolve_keyboard, map(_find_name, paths))))
+    # Convert to posix paths for consistency
+    found = map(lambda x: str(Path(x).as_posix()), found)
 
+    return sorted(set(found))
 
 def resolve_keyboard(keyboard):
     cur_dir = Path('keyboards')

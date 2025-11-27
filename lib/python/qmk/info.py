@@ -13,7 +13,7 @@ from qmk.json_schema import deep_update, json_load, keyboard_validate, keyboard_
 from qmk.keyboard import config_h, rules_mk
 from qmk.keymap import list_keymaps
 from qmk.makefile import parse_rules_mk_file
-from qmk.math import compute
+from qmk.math_ops import compute
 
 true_values = ['1', 'on', 'yes']
 false_values = ['0', 'off', 'no']
