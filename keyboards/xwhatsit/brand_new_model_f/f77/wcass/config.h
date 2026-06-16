@@ -32,6 +32,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #undef BOOTMAGIC_LITE
 
 #define VIA_EEPROM_LAYOUT_OPTIONS_SIZE 2
+#undef DYNAMIC_KEYMAP_LAYER_COUNT
 #define DYNAMIC_KEYMAP_LAYER_COUNT 3
 #define VIAL_TAP_DANCE_ENTRIES 4
 #define VIAL_COMBO_ENTRIES 4

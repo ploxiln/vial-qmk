@@ -20,7 +20,8 @@ enum tent_layers {
 	_DEF,
 	_ALTF,
 	_FN,
-	_SFN
+	_SFN,
+    _MAX_DYN = DYNAMIC_TOP_LAYER,
 };
 
 // Defines the keycodes used by our macros in process_record_user
@@ -77,6 +78,7 @@ TG(layer) - toggles layer, activating it if it's inactive and vice versa
 #define OL_LSFT OSM(MOD_LSFT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [_MAX_DYN] = {0}, // Zero init Dynamic Layers
         /* Default */
         //      KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC,
         //      KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS,
@@ -209,4 +211,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   }
   return true;
 };
-

@@ -19,7 +19,8 @@
 enum layer_names {
     _BASE,
     _FN,
-    _FN2
+    _FN2,
+    _MAX_DYN = DYNAMIC_TOP_LAYER,
 };
 
 // Defines the keycodes used by our macros in process_record_user
@@ -29,6 +30,7 @@ enum custom_keycodes {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+    [_MAX_DYN] = {0}, // Zero init Dynamic Layers
     /* Base */
     [_BASE] = LAYOUT_iso_nonhhkb_split_shift_regular_backspace(
         KC_ESC, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9, KC_0, KC_MINS, KC_EQL, KC_BSPC,                     KC_P7,   KC_P8,   KC_P9,
